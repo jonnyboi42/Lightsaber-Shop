@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/cartSlice';
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -12,14 +14,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Lightsabers = () => {
   const [lightsabers, setLightsabers] = useState([]); // State to store fetched data
   const [quantities, setQuantities] = useState({}); // State for quantities
+  const dispatch = useDispatch(); //Initialize dispatch
 
   useEffect(() => {
+
+    //Fetch Sabers from Server
     const fetchSabers = async () => {
       try {
         const response = await axios.get('http://localhost:3000/sabers');
         const sabers = response.data;
 
-        // Set fetched sabers to state
+        // Set fetched sabers
         setLightsabers(sabers);
 
         // Initialize quantities based on initial data
@@ -44,9 +49,21 @@ const Lightsabers = () => {
     });
   };
 
+  const handleAddToCart = (saber) => {
+    const quantity = quantities[saber.id] || 1;
+    dispatch(
+      addToCart({
+        id: saber.id,
+        name: saber.name,
+        price:  saber.price,
+        quantity,
+      })
+    )
+  }
+
   return (
     <Container>
-      <Row className="justify-content-center">
+      <Row>
         {lightsabers.map((saber) => (
           <Col lg={3} md={4} sm={6} className="mb-4" key={saber.id}>
             <Card className="item">
@@ -62,14 +79,19 @@ const Lightsabers = () => {
                 <Form>
                   <Form.Group controlId={`${saber.id}Quantity`}>
                     <Form.Label>Quantity</Form.Label>
-                    <Form.Control
+                    <Form.Control className='quantity-button'
                       type="number"
                       min="1"
                       value={quantities[saber.id] || 1}
                       onChange={(e) => handleQuantityChange(e, saber.id)}
                     />
                   </Form.Group>
-                  <Button variant="primary">BUY NOW</Button>
+                  <Button className='add-to-cart-button'
+                    variant="primary"
+                    onClick={() => handleAddToCart(saber)}
+                  >
+                    ADD TO CART
+                  </Button>
                 </Form>
               </Card.Body>
             </Card>

@@ -1,15 +1,14 @@
 import { useState } from 'react'
-import Header from './components/Header/Header'
 import Lightsabers from './components/LightSabers/Lightsabers'
-import CartPage from './components/CartPage/CartPage'
-import Cart from './components/Cart/Cart'
+import CartPage from './pages/CartPage/CartPage'
+import HomePage from './pages/HomePage/HomePage'
+
 function App() {
  
 
   return (
     <div>
-      <Header/>
-      <Cart/>
+      <HomePage/>
     </div>
 
   )

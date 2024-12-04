@@ -7,3 +7,31 @@ body{
 .saber{
     width: 100%;
 }
+
+.card-title{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item{
+    background: none;
+    color: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 1em;
+}
+
+.quantity-button{
+    width: 30%;
+    background: none;
+    color: white;
+    
+    
+}
+
+.add-to-cart-button{
+    margin-top: .7em;
+    background: none;
+    border: 1px solid rgb(188, 188, 188);
+}
