@@ -1,0 +1,10 @@
+
+.electronic-options{
+    display: flex;
+    gap: 1em;
+}
+.pixel-button, .proffie-button{
+    background: none;
+
+
+}

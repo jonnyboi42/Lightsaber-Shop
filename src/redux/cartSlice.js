@@ -11,26 +11,24 @@
 // The slice helps encapsulate state and logic for a specific feature of your
 //  application (e.g., cart, user, products).
 
-
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const cartSlice = createSlice({
-    name: 'cart',
-    initialState:[],
-    reducers:{
-        addToCart: (state, action) =>{
-            const item = action.payload;
-            const existingItem = state.find((cartItem) => cartItem.id === item.id);
-            if(existingItem){
-                //Update the quantity if the item is already in the cart
-                existingItem.quantity += item.quantity;
-            } else{
-                //Add new item to the cart
-                state.push(item);
-            }
-        }
-    }
+  name: 'cart',
+  initialState: [], // Ensure this is an array
+  reducers: {
+    addToCart: (state, action) => {
+      console.log('Action Payload:', action.payload);
+      const item = action.payload;
+      const existingItem = state.find((cartItem) => cartItem.id === item.id);
+      if (existingItem) {
+        existingItem.quantity += item.quantity;
+      } else {
+        state.push(item);
+      }
+    },
+  },
 });
 
-export const {addToCart} = cartSlice.actions;
+export const { addToCart } = cartSlice.actions;
 export default cartSlice.reducer;

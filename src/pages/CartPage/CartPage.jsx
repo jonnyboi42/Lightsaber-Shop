@@ -1,5 +1,5 @@
-import React from 'react';
-import { useSelector } from 'react-redux'; // Import useSelector to access Redux state
+import { useSelector } from "react-redux";
+import React from "react";
 
 const CartPage = () => {
   // Get cart state from Redux store

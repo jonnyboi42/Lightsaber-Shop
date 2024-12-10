@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
+import { setNowViewing } from '../../redux/nowViewingSlice';
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -11,10 +13,12 @@ import Form from 'react-bootstrap/Form'; // Import Form from react-bootstrap
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 const Lightsabers = () => {
   const [lightsabers, setLightsabers] = useState([]); // State to store fetched data
   const [quantities, setQuantities] = useState({}); // State for quantities
   const dispatch = useDispatch(); //Initialize dispatch
+  const navigate = useNavigate();
 
   useEffect(() => {
 
@@ -61,18 +65,35 @@ const Lightsabers = () => {
     )
   }
 
+  const handleClickedSaber = (saber) =>{
+    dispatch(
+      setNowViewing({
+        id: saber.id,
+        name: saber.name,
+        price: saber.price,
+        reviews: saber.reviews,
+      })
+    );
+    // Navigate to the desired route
+    navigate('/saber');
+
+  }
+
   return (
     <Container>
       <Row>
         {lightsabers.map((saber) => (
           <Col lg={3} md={4} sm={6} className="mb-4" key={saber.id}>
             <Card className="item">
+              <a onClick={(e) => handleClickedSaber(saber)}>
               <Card.Img
                 variant="top"
                 className="saber-img"
                 src={saber.src}
                 alt={saber.altText}
               />
+              </a>
+
               <Card.Body>
                 <Card.Title>{saber.name}</Card.Title>
                 <Card.Text>Price: ${saber.price}</Card.Text>
