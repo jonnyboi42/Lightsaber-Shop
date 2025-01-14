@@ -1,4 +1,10 @@
 
+.selected-saber-container{
+    font-size: 1.3rem;
+}
+.saber{
+    width: 95%;
+}
 .electronic-options{
     display: flex;
     gap: 1em;
@@ -7,4 +13,9 @@
     background: none;
 
 
+}
+
+
+.keep-shopping-button{
+    margin-top: 1em;
 }

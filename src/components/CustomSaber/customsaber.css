@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+/* font-family: "Oswald", serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+/* font-family: "Raleway", serif; */
+.customsaber-container{
+    /* margin-top: 5em; */
+    padding-bottom:3em ;
+    padding-top:3em ;
+    border-bottom: 1px solid gray;
+ 
+}
+
+.customsaber-row{
+    display: flex;
+    gap: 5em;
+}
+
+.customsaber-photo > img {
+    max-width: 100%; /* Ensure the image doesn't exceed its container width */
+    height: auto;    /* Maintain aspect ratio */
+}
+
+
+.customsaber-text{
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.customsaber-text > div > h1{
+    font-family: "Oswald", serif;
+    font-size: 4rem;
+    
+}
+
+.customsaber-text > div > p{
+    font-family: "Raleway", serif;
+    margin-top: .8em;
+    font-size: 1.2rem;
+    line-height: 30px;
+}
+
+#build-btn{
+    color: white;
+    border: 2px solid;
+    background: none;
+    margin-top: 2em;
+}
+
+
+
+/* Custom Media Query  */
+@media screen and (max-width: 1107px) {
+    .customsaber-row{
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+/* font-family: "Bebas Neue", serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+/* font-family: "Oxanium", serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+/* font-family: "Oswald", serif; */
+
+.electronics-container{
+    padding-top:2em ;
+    padding-bottom:2em ;
+}
+
+.electronics-container > .row > .col > h1{
+    font-family: "Oswald", serif;
+    text-align: center;
+}
+
+
+.electronics-container > .row > .col > p{
+    font-family: "Raleway", serif;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 2em;
+}
+
+
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0; /* Optional: removes the default left padding */
+    text-align: center;
+    font-family: "Oxanium", serif;
+    font-size: 1.1rem;
+    line-height: 33px;
+  }
+
+.card-text:last-of-type {
+    margin-top: auto; /* Pushes the last text and button to the bottom */
+}
+
+.board-btn {
+    margin-top: 10px; /* Adds spacing between the price and the button */
+    background-color: black;
+}
+.pricing-card > .card-body > .card-title{
+    font-family: "Bebas Neue", serif;
+    font-size: 2.5rem;
+    text-align: center;
+    word-wrap: break-word; /* Ensures long words break */
+    white-space: normal; /* Allows wrapping for long titles */
+    overflow-wrap: anywhere; /* Enables breaking at any point to prevent cutoff */
+    line-height: 1.2; /* Adjust line height for better spacing if wrapping occurs */
+   
+}
+
+.pricing-card{
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    padding: 2em;
+    min-height: 100%; /* Ensures all cards have equal height */
+    
+
+}
+
+.electronic-board-price{
+    font-family: "Oswald", serif;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+

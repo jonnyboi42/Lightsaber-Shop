@@ -71,20 +71,24 @@ const Lightsabers = () => {
         id: saber.id,
         name: saber.name,
         price: saber.price,
+        src: saber.src,
         reviews: saber.reviews,
-      })
+      }),
+
     );
+
     // Navigate to the desired route
     navigate('/saber');
 
   }
 
   return (
-    <Container>
+    <Container id='saber-selection-container'>
       <Row>
+      <h1 id='saber-selection'>Selection</h1>
         {lightsabers.map((saber) => (
           <Col lg={3} md={4} sm={6} className="mb-4" key={saber.id}>
-            <Card className="item">
+            <Card className="saber">
               <a onClick={(e) => handleClickedSaber(saber)}>
               <Card.Img
                 variant="top"
@@ -97,23 +101,9 @@ const Lightsabers = () => {
               <Card.Body>
                 <Card.Title>{saber.name}</Card.Title>
                 <Card.Text>Price: ${saber.price}</Card.Text>
-                <Form>
-                  <Form.Group controlId={`${saber.id}Quantity`}>
-                    <Form.Label>Quantity</Form.Label>
-                    <Form.Control className='quantity-button'
-                      type="number"
-                      min="1"
-                      value={quantities[saber.id] || 1}
-                      onChange={(e) => handleQuantityChange(e, saber.id)}
-                    />
-                  </Form.Group>
-                  <Button className='add-to-cart-button'
-                    variant="primary"
-                    onClick={() => handleAddToCart(saber)}
-                  >
-                    ADD TO CART
-                  </Button>
-                </Form>
+                <Card.Text>{saber.blade}</Card.Text>
+                <Card.Text>{saber.shipping}</Card.Text>
+                
               </Card.Body>
             </Card>
           </Col>

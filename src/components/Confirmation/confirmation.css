@@ -1,0 +1,13 @@
+.confirmation-container > .row > .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.confirmation-container  h1{
+    font-size: 4rem;
+}
+
+.confirmation-container p {
+    font-size: 2rem;
+}

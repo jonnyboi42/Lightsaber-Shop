@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+/* font-family: "Oswald", serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+/* font-family: "Raleway", serif; */
+
+.browsesaber-container{
+    margin-top: 3em;
+}
+
+.browsesaber-row{
+    text-align: center;
+}
+
+.browsesaber-text > h1{
+    font-family: "Oswald", serif;
+}
+
+.browsesaber-text > p{
+    font-family: "Raleway", serif;
+}

@@ -20,6 +20,13 @@ const cartSlice = createSlice({
     addToCart: (state, action) => {
       console.log('Action Payload:', action.payload);
       const item = action.payload;
+
+      //Check if electronic type is null or undefined
+      if(!item.electronicType){
+        console.log('CannotAdd item to cart, electronicType is not selected');
+        return;
+      }
+      
       const existingItem = state.find((cartItem) => cartItem.id === item.id);
       if (existingItem) {
         existingItem.quantity += item.quantity;
@@ -27,8 +34,13 @@ const cartSlice = createSlice({
         state.push(item);
       }
     },
+
+    removeItem: (state, action) =>{
+      const itemIdToRemove = action.payload;
+      return state.filter((cartItem) => cartItem.id !== itemIdToRemove);
+    }
   },
 });
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, removeItem } = cartSlice.actions;
 export default cartSlice.reducer;

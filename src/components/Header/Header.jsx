@@ -1,92 +1,47 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import cartIcon from '../../assets/icons/cart.svg';
 
 const Header = () => {
   const navigate = useNavigate();
 
-  const handleCartClick = () => {
-    navigate('/cart'); // Navigate to the Cart Page
-  };
+  const handleScrollToSection = (id) =>{
+    const section = document.getElementById(id);
+    if(section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container-fluid">
-        <a className="navbar-brand" href="#">ATLAS</a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+    <Navbar expand="lg" className="bg-body-tertiary header-bar">
+    <Container id='navbar-container'>
+      <Navbar.Brand href="#">ATLAS</Navbar.Brand>
+      <Navbar.Toggle aria-controls="navbarScroll" />
+      <Navbar.Collapse id="navbarScroll">
+        <Nav
+          className="me-auto my-2 my-lg-0"
+          style={{ maxHeight: '100px' }}
+          navbarScroll
         >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#" onClick={handleCartClick}>
-                <img src={cartIcon} alt="Cart" />
-              </a>
-            </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled" aria-disabled="true">
-                Disabled
-              </a>
-            </li>
-          </ul>
-          <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
-        </div>
-      </div>
-    </nav>
+          <Nav.Link href="#action1" onClick={()=> navigate('/')}>Home</Nav.Link>
+          <Nav.Link href="#action1" onClick={() => handleScrollToSection('saber-selection-container')}>Sabers</Nav.Link>
+          <Nav.Link href="#action1" onClick={()=> handleScrollToSection('electronics')}>Electronics</Nav.Link>
+          
+          
+        </Nav>
+        <Form className="d-flex">
+          <Nav.Link href="#action2" onClick={() =>{navigate('/cart')}}><img src={cartIcon} alt="" /></Nav.Link>
+          
+        </Form>
+      </Navbar.Collapse>
+    </Container>
+  </Navbar>
   );
 };
 

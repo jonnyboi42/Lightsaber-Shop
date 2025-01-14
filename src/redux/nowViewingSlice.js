@@ -11,10 +11,15 @@ const nowViewingSlice = createSlice({
 
         clearNowViewing: ()=>{
             return null;
-        }
+        
+        },
+
+
+
+
     }
 })
 
 
-export const { setNowViewing, clearNowViewing } = nowViewingSlice.actions;
+export const { setNowViewing, clearNowViewing} = nowViewingSlice.actions;
 export default nowViewingSlice.reducer;

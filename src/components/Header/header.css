@@ -1,3 +1,85 @@
-.main-content-container{
-    height: 100vh;
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap');
+/* font-family: "Khand", serif; */
+
+nav.bg-body-tertiary.header-bar.navbar.navbar-expand-lg.navbar-light {
+  /* margin-left: 7em;
+  margin-right: 7em; */
 }
+
+.header-bar {
+  background-color: rgb(0, 0, 0) !important;
+  height: 12vh;
+  color: white !important;
+  font-family: "Khand", serif;
+  
+  
+  
+}
+
+.header-bar .nav-link {
+  color: white !important;
+  font-size: 1.8rem;
+  position: relative; /* Necessary for pseudo-element styling */
+  text-decoration: none; /* Removes default underline */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.header-bar .nav-link:hover {
+  color: #b5dd07 !important; /* Modern light blue hover color */
+}
+
+.header-bar .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px; /* Adjust based on spacing */
+  width: 0;
+  height: 2px;
+  background-color: #bbce0d; /* Matches hover color */
+  transition: width 0.3s ease;
+}
+
+.header-bar .nav-link:hover::after {
+  width: 100%; /* Expand underline on hover */
+}
+
+.header-bar .navbar-brand {
+  font-size: 3rem;
+  color: white !important;
+}
+
+/* Custom Modern Scrollbar */
+::-webkit-scrollbar {
+  width: 10px; /* Wider scrollbar */
+  height: 10px; /* For horizontal scroll */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #e0e0e0; /* Light grey color for the thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Soft border for contrast */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #b5dd07; /* Greenish hover effect */
+  transform: scale(1.1); /* Slightly enlarges on hover for a modern touch */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Very light grey track color */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent; /* Optional styling for the bottom-right corner */
+}
+
+
+/* @media screen and(max-width: 1000px){
+  nav.bg-body-tertiary.header-bar.navbar.navbar-expand-lg.navbar-light {
+    margin-left: 1em !important;
+    margin-right: 1em !important;
+  }
+
+} */
